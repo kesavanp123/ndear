@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.22.0 (HEAD)
+  labels:
+    k8s-app: registry
+  name: registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: registry
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.22.0 (HEAD)
+      labels:
+        k8s-app: registry
+    spec:
+      containers:
+        - env:
+            - name: connectionInfo_password
+              value: diltejk8s
+            - name: connectionInfo_uri
+              value: jdbc:postgresql://my-release-postgresql.default.svc.cluster.local:5432/registry
+            - name: connectionInfo_username
+              value: opensaber
+            - name: sunbird_sso_publickey
+              value: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkfDOGWeRleQOnGwoo05JrnPhVOp9XdfagZOVh2JL97yd8J0FhzlMStkYAOUsBGJfWf+8WSkfdbEZNM1THDjJJP1qyPDcQfHWpB/LQm9UXPw8r10bnpsVjWQr73LkEKrlfn+oeH2TfVuFsOeJcMHbsXd2r9bY4Ap4u3uOFfPEKkhf9N9AtIiTd5pufTitykFqeoZ4dKQ4fk/TcxX8jHtk+h/vmlI+yRv4JbuwryK5apclojWtm83UixUeXFTguJEhkQBycVQ2UVL2+CTjg4f+cXbNnn0NqiVcb8RekjdT8fDCGeJ8EX5BJ8nEh0GhE0IqGtn8DxJU52q9CR6cOvzkMQIDAQAB
+            - name: sunbird_sso_realm
+              value: ndear
+            - name: sunbird_sso_url
+              value: https://ndear.xiv.in/auth
+            - name: sunbird_sso_admin_client_id
+              value: admin-api
+            - name: sunbird_sso_client_id
+              value: registry-frontend
+            - name: sunbird_sso_admin_client_secret
+              value: ad87c840-d062-437c-a4df-3b4a0ef5ca03
+            - name: claims_url
+              value: http://claim-ms:8082
+            - name: search_providerName
+              value: io.opensaber.registry.service.ElasticSearchService
+            - name: elastic_search_connection_url
+              value: ndear-es-elasticsearch-coordinating-only.default.svc.cluster.local:9200
+            - name: filestorage_connection_url
+              value: http://minio.default.svc.cluster.local:9000
+            - name: filestorage_access_key
+              value: HkyzMnztXq
+            - name: filestorage_secret_key
+              value: iMNFIW9NJQBO9dB58keBybx0KW0blulRTVwDVWGi
+            - name: filestorage_bucket_key
+              value: ndear
+          image: dockerhub/opensaber-rc:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: schema-config-volume
+              mountPath: "/home/opensaber/config/public/_schemas"
+              readOnly: true
+          resources:
+            requests:
+              cpu: 500m
+              memory: 2Gi
+#            limits:
+#              cpu: 500m
+          name: registry
+          ports:
+            - containerPort: 8081
+      volumes:
+          - name: schema-config-volume
+            projected:
+              sources:
+              - secret:
+                  name: schema-config
+      restartPolicy: Always
