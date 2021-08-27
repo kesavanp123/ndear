@@ -259,7 +259,8 @@
       "type": "object",
       "properties": {
         "fileName": {
-          "type": "string"
+          "type": "string",
+          "format": "file"
         }
       }
     },
