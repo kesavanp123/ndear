@@ -218,7 +218,13 @@
         "documents": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/Document"
+            "type": "object",
+            "properties": {
+              "fileName": {
+                "type": "string",
+                "format": "file"
+              }
+            }
           },
           "title": "Education related documents"
         }
