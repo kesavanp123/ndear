@@ -91,6 +91,15 @@
           "conditions": "(ATTESTOR#$.osid#.contains(REQUESTER#$.institute#))"
         }
       ],
+      "autoAttestationPolicies": [
+        {
+          "parentProperty": "identityDetails",
+          "property": "identityHolder",
+          "nodeRef": "$.identityDetails.identityHolder",
+          "valuePath": "$.identityDetails.identityHolder.value",
+          "typePath": "$.identityDetails.identityHolder.type"
+        }
+      ],
       "subjectJsonPath": "mobile",
       "internalFields": [],
       "ownershipAttributes": [

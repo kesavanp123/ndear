@@ -83,6 +83,15 @@
           "conditions": "(ATTESTOR#$.experience.[*].institute#.contains(REQUESTER#$.institute#) && ATTESTOR#$.experience[?(@.institute == REQUESTER#$.institute#)]['_osState']#.contains('PUBLISHED'))"
         }
       ],
+      "autoAttestationPolicies": [
+        {
+          "parentProperty": "identityDetails",
+          "property": "identityHolder",
+          "nodeRef": "$.identityDetails.identityHolder",
+          "valuePath": "$.identityDetails.identityHolder.value",
+          "typePath": "$.identityDetails.identityHolder.type"
+        }
+      ],
       "subjectJsonPath": "mobile",
       "ownershipAttributes": [
         {

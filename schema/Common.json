@@ -29,17 +29,23 @@
           "format": "date",
           "title": "DOB"
         },
-        "identityType": {
-          "$id": "#/properties/identityType",
-          "type": "string",
-          "$comment": "Nationality",
-          "title": "ID Type"
-        },
-        "identityValue": {
-          "$id": "#/properties/identityValue",
-          "type": "string",
-          "$comment": "Nationality",
-          "title": "ID Value"
+        "identityHolder": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "$id": "#/properties/type",
+              "type": "string",
+              "$comment": "Nationality",
+              "title": "ID Type",
+              "enum": ["AADHAR", "PAN", "LICENSE", "OTHER"]
+            },
+            "value": {
+              "$id": "#/properties/value",
+              "type": "string",
+              "$comment": "Nationality",
+              "title": "ID Value"
+            }
+          }
         }
       }
     },
