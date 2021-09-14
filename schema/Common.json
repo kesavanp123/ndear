@@ -75,10 +75,15 @@
     "AcademicQualification": {
       "type": "object",
       "properties": {
-        "institute": {
-          "$id": "#/properties/institute",
+        "instituteOSID": {
+          "$id": "#/properties/instituteOSID",
           "type": "string",
-          "title": "Institute Full Name"
+          "title": "Institute OSID"
+        },
+        "instituteName":{
+          "$id": "#/properties/instituteName",
+          "type": "string",
+          "title": "Institute Name"
         },
         "qualification": {
           "$id": "#/properties/qualification",
@@ -105,10 +110,15 @@
     "ExperienceType": {
       "type": "object",
       "properties": {
-        "institute": {
-          "$id": "#/properties/institute",
+        "instituteOSID": {
+          "$id": "#/properties/instituteOSID",
           "type": "string",
-          "title": "Institute Full Name"
+          "title": "Institute OSID"
+        },
+	      "instituteName":{
+          "$id": "#/properties/instituteName",
+          "type": "string",
+          "title": "Institute Name"
         },
         "employmentType": {
           "$id": "#/properties/employmentType",
@@ -137,9 +147,12 @@
           "title": "Teacher Type",
           "enum": [
             "Head teacher",
+	    "Acting head teacher",
+	    "Teacher",
+	    "Instructor positioned as per RTE",
             "Principal",
             "VicePrincipal",
-            "Lecture"
+            "Lecturer"
           ]
         },
         "subjects": {
@@ -199,6 +212,7 @@
         "medium": {
           "$id": "#/properties/program",
           "type": "string",
+          "enum": ["English", "Hindi", "Gujarati", "Malayalam", "Tamil"],
           "title": "Medium of Education"
         },
         "class": {
