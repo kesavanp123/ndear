@@ -165,46 +165,43 @@
           "title": "Subjects Taught",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/SubjectsTaught"
+            "type": "object",
+            "properties": {
+              "subjects": {
+                "$id": "#/properties/subjects",
+                "type": "string",
+                "title": "Subject",
+                "enum": [
+                  "English",
+                  "Kannada",
+                  "Mathematics",
+                  "Science",
+                  "Social Science",
+                  "Art"
+                ]
+              },
+              "grades": {
+                "$id": "#/properties/grades",
+                "type": "string",
+                "title": "Grades",
+                "enum": [
+                  "Pre-Pri.",
+                  "Class I",
+                  "Class II",
+                  "Class III",
+                  "Class IV",
+                  "Class V",
+                  "Class VI",
+                  "Class VII",
+                  "Class VIII",
+                  "Class IX",
+                  "Class X",
+                  "Class XI",
+                  "Class XII"
+                ]
+              }
+            }
           }
-        }
-      }
-    },
-    "SubjectsTaught": {
-      "type": "object",
-      "properties": {
-        "subjects": {
-          "$id": "#/properties/subjects",
-          "type": "string",
-          "title": "Subject",
-          "enum": [
-            "English",
-            "Kannada",
-            "Mathematics",
-            "Science",
-            "Social Science",
-            "Art"
-          ]
-        },
-        "grades": {
-          "$id": "#/properties/grades",
-          "type": "string",
-          "title": "Grades",
-          "enum": [
-            "Pre-Pri.",
-            "Class I",
-            "Class II",
-            "Class III",
-            "Class IV",
-            "Class V",
-            "Class VI",
-            "Class VII",
-            "Class VIII",
-            "Class IX",
-            "Class X",
-            "Class XI",
-            "Class XII"
-          ]
         }
       }
     },
