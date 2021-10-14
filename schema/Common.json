@@ -115,7 +115,7 @@
           "type": "string",
           "title": "Institute OSID"
         },
-	      "instituteName":{
+        "instituteName":{
           "$id": "#/properties/instituteName",
           "type": "string",
           "title": "Institute Name"
@@ -147,51 +147,59 @@
           "title": "Teacher Type",
           "enum": [
             "Head teacher",
-	    "Acting head teacher",
-	    "Teacher",
-	    "Instructor positioned as per RTE",
+            "Acting head teacher",
+            "Teacher",
+            "Instructor positioned as per RTE",
             "Principal",
             "VicePrincipal",
             "Lecturer"
           ]
         },
-        "subjects": {
-          "$id": "#/properties/subjects",
+        "subjectsTaught": {
+          "$id": "#/properties/subjectsTaught",
+          "title": "Subjects Taught",
           "type": "array",
-          "title": "Subjects teaching at this Institute",
           "items": {
-            "type": "string",
-            "enum": [
-              "English",
-              "Kannada",
-              "Mathematics",
-              "Science",
-              "Social Science",
-              "Art"
-            ]
-          }
-        },
-        "grades": {
-          "$id": "#/properties/grades",
-          "type": "array",
-          "title": "Grades Taught (per subject taught)",
-          "items": {
-            "type": "string",
-            "enum": [
-              "Pre-Pri.",
-              "Class I",
-              "Class II",
-              "Class III",
-              "Class IV",
-              "Class V",
-              "Class VI",
-              "Class VII",
-              "Class VIII",
-              "Class IX",
-              "Class X",
-              "Class XI",
-              "Class XII"
-            ]
+            "type": "object",
+            "subjects": {
+              "$id": "#/properties/subjects",
+              "type": "array",
+              "title": "Subjects teaching at this Institute",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "English",
+                  "Kannada",
+                  "Mathematics",
+                  "Science",
+                  "Social Science",
+                  "Art"
+                ]
+              }
+            },
+            "grades": {
+              "$id": "#/properties/grades",
+              "type": "array",
+              "title": "Grades Taught (per subject taught)",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "Pre-Pri.",
+                  "Class I",
+                  "Class II",
+                  "Class III",
+                  "Class IV",
+                  "Class V",
+                  "Class VI",
+                  "Class VII",
+                  "Class VIII",
+                  "Class IX",
+                  "Class X",
+                  "Class XI",
+                  "Class XII"
+                ]
+              }
+            }
           }
         }
       }
