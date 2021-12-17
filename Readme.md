@@ -1,4 +1,4 @@
-## Ndear sample starter project for open-saber rc
+## Educational Schema
 ``
 Deploy app
 ``
